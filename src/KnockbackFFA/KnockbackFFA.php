@@ -46,7 +46,7 @@ use pocketmine\network\mcpe\protocol\{
     AdventureSettingsPacket
 };
 
-class KnockbackFFA extends PluginBase implements Listener {
+class KnockbackFFA extends PluginBase implements Listener{
 
     public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
