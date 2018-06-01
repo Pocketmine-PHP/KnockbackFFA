@@ -1,0 +1,36 @@
+#configurations datei für KnockBackFFA [FIXED]
+#Make by McpeBooster fixed by zBearchenPlayz
+
+#ENG: every Changes in the config need to reload the Server!!
+#DEU: Jede Änderung in den Konfiguration datein benötigt ein Neuladen des Servers!
+#
+#ENG: Language of the Plugin: only Supportet english and german
+#DEU: Sprache des Plugins: nur englisch und deutsch wird unterstützt!
+#english language = eng
+#deutsch = deu
+language: deu
+
+
+#ENG: GamePrefix
+#DEU: Spiel Prefix
+Prefix: §7»§l§bKnockFFA§r§7«
+
+#KnockbackFFA Arena's:
+#Example:
+#Arenas:
+#- Test
+#- Test2
+
+Arenas: [KnockFFA]
+
+#ENG: Activate/Deactivate Title (true/false)
+#DEU: Aktiviere/Deaktiviere Titel (true/false)
+Title: true
+
+#ENG: Maximum of Players per Arena
+#DEU: Maximale Spieler Anzahl pro Arena
+MaxPlayer: 25
+
+#ProtectionRadius where PvP is disabled
+#Zonen Radius in der PhP ausgeschalten ist
+ProtectionRadius: 10
