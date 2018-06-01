@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Pocketmine-PHP/KnockFFA
+branches:
+- master
+projects:
+  KnockFFA:
+    path: ""
+...
