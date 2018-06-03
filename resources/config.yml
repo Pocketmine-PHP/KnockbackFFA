@@ -1,6 +1,17 @@
-#configurations datei für KnockBackFFA [FIXED]
-#Make by McpeBooster fixed by zBearchenPlayz
+#configurations datei für KnockIt [FORKED]
+#Make by HonorGamerHD forked from zBearchenPlayz!
 
+# | ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|   |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|
+# |____________     |   |_______      _______|
+#              /    /           |     |
+#           /     /            |     |
+#         /     /              |     |
+#       /     /                |     |
+#     /     /                  |     |
+#    /     /                    |     |
+# |      ¯¯¯¯¯¯¯¯¯¯|           |     |
+# |________________|           |_____|
+#
 #ENG: every Changes in the config need to reload the Server!!
 #DEU: Jede Änderung in den Konfiguration datein benötigt ein Neuladen des Servers!
 #
@@ -13,7 +24,7 @@ language: deu
 
 #ENG: GamePrefix
 #DEU: Spiel Prefix
-Prefix: §7»§l§bKnockFFA§r§7«
+Prefix: §7»§l§bKnockIt§r§7«
 
 #KnockbackFFA Arena's:
 #Example:
@@ -32,5 +43,5 @@ Title: true
 MaxPlayer: 25
 
 #ProtectionRadius where PvP is disabled
-#Zonen Radius in der PvP ausgeschalten ist
-ProtectionRadius: 10
+#Zonen Radius in der PhP ausgeschalten ist
+ProtectionRadius: 5
