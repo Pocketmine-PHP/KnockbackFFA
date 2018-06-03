@@ -1,13 +1,13 @@
-name: KnockbackFFA
+name: KnockBackFFA
 main: KnockbackFFA\KnockbackFFA
 version: 2.0
 api: 
 - 3.0.0-ALPHA10
 - 3.0.0-ALPHA11
 - 3.0.0-ALPHA12
-author: McpeBooster [Fixed by zBearchenPlayz]
+author: zBearchenPlayz
 commands:
-  knockbackffa:
-    description: KnockBackFFA beitreten
-  kbf:
-    description: KnockBackFFA beitreten
+  knockit:
+    description: KnockIt Arena beitreten
+  kt:
+    description: KnockIt Arena beitreten
