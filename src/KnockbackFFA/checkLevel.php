@@ -3,6 +3,7 @@
 namespace KnockBackFFA;
 
 use pocketmine\scheduler\PluginTask;
+use KnockBackFFA\KnockBackFFA;
 
 class checkLevel extends PluginTask {
 	
