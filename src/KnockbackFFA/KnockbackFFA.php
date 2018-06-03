@@ -480,5 +480,4 @@ class KnockbackFFA extends PluginBase implements Listener {
             return false;
         }
     }
-
 }
