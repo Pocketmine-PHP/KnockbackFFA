@@ -475,10 +475,10 @@ class KnockbackFFA extends PluginBase implements Listener {
                 }
                 $player->sendMessage($this->prefix . " Syntax: /kbf <join/quit>!");
                 return false;
-            
+            }
             $sender->sendMessage($this->prefix . " §7von den §6Entwickler§7!");
             return false;
-		    
         }
     }
+    
 }
