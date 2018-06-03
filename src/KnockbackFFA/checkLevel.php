@@ -6,7 +6,7 @@ use pocketmine\scheduler\PluginTask;
 
 class checkLevel extends PluginTask {
 	
-	public function __construct(KnockbackFFA $plugin){
+	public function __construct(KnockIt $plugin){
 		parent::__construct($plugin);
 		$this->plugin = $plugin;
 	}
