@@ -478,6 +478,7 @@ class KnockbackFFA extends PluginBase implements Listener {
             
             $sender->sendMessage($this->prefix . " §7von den §6Entwickler§7!");
             return false;
+		    
         }
     }
 }
