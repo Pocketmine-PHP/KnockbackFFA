@@ -3,7 +3,7 @@
 
 namespace KnockBackFFA;
 
-use KnockbackFFA\checkLevel;
+use KnockBackFFA\checkLevel;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\Server;
@@ -423,7 +423,7 @@ class KnockbackFFA extends PluginBase implements Listener {
         $item = Item::get($waffe);
         
         $enchantment = Enchantment::getEnchantment(12);
-        $level = 2;
+        $level = 1;
         $knockback = new EnchantmentInstance($enchantment, $level);
         $item->addEnchantment($knockback);
 
@@ -454,7 +454,7 @@ class KnockbackFFA extends PluginBase implements Listener {
     }
 
     public function onCommand(CommandSender $sender, Command $command, $label, array $args): bool {
-        if (strtolower($command->getName()) === "knockbackffa" || strtolower($command->getName()) === "kbf") {
+        if (strtolower($command->getName()) === "knockbackffa" || strtolower($command->getName()) === "kt") {
             if ($sender instanceof Player) {
                 $player = $sender;
                 if (!empty($args[0]) && !empty($args[1])) {
@@ -462,18 +462,18 @@ class KnockbackFFA extends PluginBase implements Listener {
                     $allarenas = $this->getConfig()->get("Arenas");
 
                     if (!in_array($args[1], $allarenas)) {
-                        $player->sendMessage("Arena not exist!");
+                        $player->sendMessage("Arena existiert nicht!");
                         return false;
                     }
-                    if ($args[0] == "join") {
+                    if ($args[0] == "beitreten") {
                         $this->ArenaJoin($player, $args[1]);
                         return true;
-                    } elseif ($args[0] == "leave" or $args[0] == "quit") {
+                    } elseif ($args[0] == "verlassen" or $args[0] == "quit") {
                         $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
                         return true;
                     }
                 }
-                $player->sendMessage($this->prefix . " Syntax: /kbf <join/quit>!");
+                $player->sendMessage($this->prefix . " Syntax: /kt <beitreten/verlassen>!");
                 return false;
             }
             $sender->sendMessage($this->prefix . " §7by §6Devs§7!");
