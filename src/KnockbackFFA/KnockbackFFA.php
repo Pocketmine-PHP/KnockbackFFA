@@ -3,7 +3,7 @@
 
 namespace KnockBackFFA;
 
-use KnockBackFFA\checkLevel;
+use KnockbackFFA\checkLevel;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\Server;
