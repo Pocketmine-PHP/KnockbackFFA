@@ -46,7 +46,7 @@ use pocketmine\network\mcpe\protocol\{
     AdventureSettingsPacket
 };
 
-class KnockbackFFA extends PluginBase implements Listener{
+class KnockbackFFA extends PluginBase implements Listener {
 
     public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
@@ -58,7 +58,7 @@ class KnockbackFFA extends PluginBase implements Listener{
         $this->titlestatus = $this->getConfig()->get("Title");
 
         $this->getLogger()->info("§c≥§7============================§c≤");
-        $this->getLogger()->info("§eKnockBackFFA");
+        $this->getLogger()->info("§eKnockIt");
                $lang = $this->getConfig()->get("language", BaseLang::FALLBACK_LANGUAGE);
         $this->baseLang = new BaseLang($lang, $this->getFile() . "resources/");
 
@@ -106,7 +106,7 @@ class KnockbackFFA extends PluginBase implements Listener{
         
             return false;
 
-        $plugin = $this->getServer()->getPluginManager()->getPlugin("KnockbackFFA");
+        $plugin = $this->getServer()->getPluginManager()->getPlugin("KnockIt");
         $version = $plugin->getDescription()->getVersion();
         //var_dump($version);
         if (!($version === $newversion)) {
@@ -423,7 +423,7 @@ class KnockbackFFA extends PluginBase implements Listener{
         $item = Item::get($waffe);
         
         $enchantment = Enchantment::getEnchantment(12);
-        $level = 1;
+        $level = 2;
         $knockback = new EnchantmentInstance($enchantment, $level);
         $item->addEnchantment($knockback);
 
@@ -454,7 +454,7 @@ class KnockbackFFA extends PluginBase implements Listener{
     }
 
     public function onCommand(CommandSender $sender, Command $command, $label, array $args): bool {
-        if (strtolower($command->getName()) === "knockbackffa" || strtolower($command->getName()) === "kbf") {
+        if (strtolower($command->getName()) === "knockit" || strtolower($command->getName()) === "kt") {
             if ($sender instanceof Player) {
                 $player = $sender;
                 if (!empty($args[0]) && !empty($args[1])) {
@@ -462,21 +462,21 @@ class KnockbackFFA extends PluginBase implements Listener{
                     $allarenas = $this->getConfig()->get("Arenas");
 
                     if (!in_array($args[1], $allarenas)) {
-                        $player->sendMessage("Arena not exist!");
+                        $player->sendMessage("Arena existiert nicht!");
                         return false;
                     }
-                    if ($args[0] == "join") {
+                    if ($args[0] == "beitreten") {
                         $this->ArenaJoin($player, $args[1]);
                         return true;
-                    } elseif ($args[0] == "leave" or $args[0] == "quit") {
+                    } elseif ($args[0] == "verlassen" or $args[0] == "Quit") {
                         $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
                         return true;
                     }
                 }
-                $player->sendMessage($this->prefix . " Syntax: /kbf <join/quit>!");
+                $player->sendMessage($this->prefix . " Usage: /knockit <beitretn/verlassem>!");
                 return false;
             }
-            $sender->sendMessage($this->prefix . " §7by §6VaronPE§7!");
+            $sender->sendMessage($this->prefix . " §7von den §6Developer§7!");
             return false;
         }
     }
