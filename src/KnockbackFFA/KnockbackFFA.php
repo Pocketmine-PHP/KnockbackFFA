@@ -15,7 +15,6 @@ use pocketmine\math\Vector3;
 use pocketmine\item\Item;
 use pocketmine\level\sound\ClickSound;
 use pocketmine\entity\Effect;
-use pocketmine\entity\EffectInstance;
 use pocketmine\item\enchantment\{
     Enchantment,
     EnchantmentInstance
@@ -63,7 +62,7 @@ class KnockbackFFA extends PluginBase implements Listener {
         $this->baseLang = new BaseLang($lang, $this->getFile() . "resources/");
 
         $this->getLogger()->info("§eLanguage: §c" . $lang);
-        $this->getLogger()->info("§eVersion: 2.0 Fork by PrinxIsLeqit");
+        $this->getLogger()->info("§eVersion: 2.0 Fork by zBearchenPlayz");
  $this->getLogger()->info("§c≥§7============================§c≤");
 
         //Check for Update
@@ -106,7 +105,7 @@ class KnockbackFFA extends PluginBase implements Listener {
         
             return false;
 
-        $plugin = $this->getServer()->getPluginManager()->getPlugin("KnockIt");
+        $plugin = $this->getServer()->getPluginManager()->getPlugin("KnockbackFFA");
         $version = $plugin->getDescription()->getVersion();
         //var_dump($version);
         if (!($version === $newversion)) {
@@ -140,7 +139,7 @@ class KnockbackFFA extends PluginBase implements Listener {
 
     public function onSignCreate(SignChangeEvent $event) {
         if ($event->getPlayer()->hasPermission("knockbackffa.admin")) {
-            if (strtolower($event->getLine(0)) == "knockbackffa") {
+            if (strtolower($event->getLine(0)) == ")KnockIt") {
                 if (in_array($event->getLine(1), $this->arenas)) {
 
                     $event->setLine(0, $this->signprefix);
@@ -148,7 +147,7 @@ class KnockbackFFA extends PluginBase implements Listener {
                     $arenalevel = $this->getServer()->getLevelByName($event->getLine(1));
                     $playercount = count($arenalevel->getPlayers());
                     $maxplayer = $this->getConfig()->get("MaxPlayer");
-                    $event->setLine(3, "§f" . $playercount . " §7/ §c" . $maxplayer);
+                    $event->setLine(3, "§f" . $playercount . " §7/ Â§c" . $maxplayer);
                     return;
                 } else {
                     $event->setCancelled();
@@ -324,9 +323,9 @@ class KnockbackFFA extends PluginBase implements Listener {
                         $playercount = count($arenalevel->getPlayers());
                         $maxplayer = $this->getConfig()->get("MaxPlayer");
                         if ($playercount >= $maxplayer) {
-                            $tile->setText($signt[0], $arena, "§cVoll", "§f" . $playercount . " §7/§c" . $maxplayer);
+                            $tile->setText($signt[0], $arena, "§cVoll", "§f" . $playercount . " §7/ Â§c" . $maxplayer);
                         } else {
-                            $tile->setText($signt[0], $arena, "§aBeitreten", "§f" . $playercount . " §7/§c" . $maxplayer);
+                            $tile->setText($signt[0], $arena, "§aBeitreten", "§f" . $playercount . " §7/ §c" . $maxplayer);
                         }
                     }
                 }
@@ -428,12 +427,12 @@ class KnockbackFFA extends PluginBase implements Listener {
         $item->addEnchantment($knockback);
 
         $inv->setItem(0, $item);
-        $eff = new EffectInstance(Effect::getEffect(Effect::JUMP) , 500 * 20 , 1 , false);
-        $player->addEffect($eff);
+        $eff = new EffectInstance(Effect::getEffect(Effect::SPEED) , 500 * 20 , 1 , false);
+	    $player->addEffect($eff);
         $level = $player->getLevel();
 
-        $eff = new EffectInstance(Effect::getEffect(Effect::SPEED) , 500 * 20 , 1 , false);
-        $player->addEffect($eff);
+        $eff = new EffectInstance(Effect::getEffect(Effect::JUMP) , 500 * 20 , 1 , false);
+        $player->addEffect($eff); 
         $player->getLevel()->addSound(new ClickSound($player));
     }
 
@@ -454,7 +453,7 @@ class KnockbackFFA extends PluginBase implements Listener {
     }
 
     public function onCommand(CommandSender $sender, Command $command, $label, array $args): bool {
-        if (strtolower($command->getName()) === "knockit" || strtolower($command->getName()) === "kt") {
+        if (strtolower($command->getName()) === "knockbackffa" || strtolower($command->getName()) === "kbf") {
             if ($sender instanceof Player) {
                 $player = $sender;
                 if (!empty($args[0]) && !empty($args[1])) {
@@ -465,18 +464,18 @@ class KnockbackFFA extends PluginBase implements Listener {
                         $player->sendMessage("Arena existiert nicht!");
                         return false;
                     }
-                    if ($args[0] == "beitreten") {
+                    if ($args[0] == "join") {
                         $this->ArenaJoin($player, $args[1]);
                         return true;
-                    } elseif ($args[0] == "verlassen" or $args[0] == "Quit") {
+                    } elseif ($args[0] == "leave" or $args[0] == "quit") {
                         $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
                         return true;
                     }
                 }
-                $player->sendMessage($this->prefix . " Usage: /knockit <beitretn/verlassem>!");
+                $player->sendMessage($this->prefix . " Syntax: /kbf <join/quit>!");
                 return false;
-            }
-            $sender->sendMessage($this->prefix . " §7von den §6Developer§7!");
+            
+            $sender->sendMessage($this->prefix . " §7von den §6Entwickler§7!");
             return false;
         }
     }
