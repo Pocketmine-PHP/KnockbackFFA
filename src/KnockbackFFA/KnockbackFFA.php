@@ -473,7 +473,7 @@ class KnockbackFFA extends PluginBase implements Listener {
                         return true;
                     }
                 }
-                $player->sendMessage($this->prefix . " Syntax: /kt <beitreten/verlassen>!");
+                $player->sendMessage($this->prefix . "Syntax: /kt <beitreten/verlassen>!");
                 return false;
             }
             $sender->sendMessage($this->prefix . " §7by §6Devs§7!");
