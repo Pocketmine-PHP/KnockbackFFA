@@ -15,6 +15,7 @@ use pocketmine\math\Vector3;
 use pocketmine\item\Item;
 use pocketmine\level\sound\ClickSound;
 use pocketmine\entity\Effect;
+use pocketmine\entity\EffectInstance;
 use pocketmine\item\enchantment\{
     Enchantment,
     EnchantmentInstance
