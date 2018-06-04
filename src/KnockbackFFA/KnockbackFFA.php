@@ -62,8 +62,8 @@ class KnockbackFFA extends PluginBase implements Listener {
                $lang = $this->getConfig()->get("language", BaseLang::FALLBACK_LANGUAGE);
         $this->baseLang = new BaseLang($lang, $this->getFile() . "resources/");
 
-        $this->getLogger()->info("§eLanguage: §c" . $lang);
-        $this->getLogger()->info("§eVersion: 2.0 Fork by PrinxIsLeqit");
+        $this->getLogger()->info("§eSprache: §c" . $lang);
+        $this->getLogger()->info("§eVersion: 2.0 von PrinxIsLeqit");
  $this->getLogger()->info("§c≥§7============================§c≤");
 
         //Check for Update
@@ -423,7 +423,7 @@ class KnockbackFFA extends PluginBase implements Listener {
         $item = Item::get($waffe);
         
         $enchantment = Enchantment::getEnchantment(12);
-        $level = 1;
+        $level = 2;
         $knockback = new EnchantmentInstance($enchantment, $level);
         $item->addEnchantment($knockback);
 
@@ -473,7 +473,7 @@ class KnockbackFFA extends PluginBase implements Listener {
                         return true;
                     }
                 }
-                $player->sendMessage($this->prefix . "Syntax: /kt <beitreten/verlassen>!");
+                $player->sendMessage($this->prefix . "Benutzung: /kt <beitreten/verlassen>!");
                 return false;
             }
             $sender->sendMessage($this->prefix . " §7by §6Devs§7!");
